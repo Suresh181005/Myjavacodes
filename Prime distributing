@@ -1,0 +1,27 @@
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        s.nextLine();
+        String[] teams = new String[n];
+        for (int i = 0; i < n; i++) {
+            teams[i] = s.nextLine();
+        }
+        ArrayList<String[]> matches = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                matches.add(new String[]{teams[i], teams[j]});
+            }
+        }
+        Collections.shuffle(matches);
+        int index = 1;
+        for (String[] match : matches) {
+            System.out.println("Match No " + index + ": " + match[0] + " vs " + match[1]);
+            index++;
+        }
+        
+    }
+}
